@@ -1,74 +1,73 @@
-let televisor = prompt("TELEVISOR DE:  'Ingrese con números cuantas pulgadas' ")
-let a = 45000
-let b = 66000
-let c = 90000
-let index = 1
-let pago = parseInt(prompt ("en cuantas cuotas va a pagar  'en números'"))
-switch (televisor) {
-    case "32":
-       console.log ("el precio es de $ " + a)
-       if (pago == 1) {
-           console.log ("En efectivo tiene un 10 % de descuento")
-       }
-       else if (pago == 3) {
-          for (let index = 1; index <= 3; index++) {
-           console.log ("cuota " + index +" es = a: " + a / 3);
-           } 
-       }
-       else if (pago == 6){
-        for (let index = 1; index <= 6; index++) {
-            console.log ("cuota " + index +" es = a: " + a / 6);
-            } 
-       }
-       else{
-        console.log ("escoja entre 1, 3 y 6 pagos")
-       }
+// Objetos
+const Tecno1 ={
+    nombre: "Tablet",
+    precio: 15000,
+    marca:"TCL",
+    origen: "Brasil"
+}
+const Tecno2 ={
+    nombre: "IPad",
+    precio: 100000,
+    marca: "Iphone",
+    origen: "China"
+}
+const Tecno3 ={
+    nombre: "Xiaomi Pad",
+    precio: 70000,
+    marca: "Xiaomi", 
+    origen: "China"
+}
+class Producto {
+    constructor(nombre, pulgadas, precio){
+    this.nombre = nombre;
+    this.pulgadas = pulgadas;
+    this.precio = precio;
+}
+}
+let television1 = new Producto("Samsung", 32, 45000)
+let television2 = new Producto("Noblex", 43, 66000)
+let television3 = new Producto("Noblex", 50, 90000)
 
+
+// Arrays de Objetos
+
+const Tecnologia = [Tecno1, Tecno2, Tecno3]
+const Tv = [television1, television2, television3]
+
+
+let seleccion = prompt ("Seleccione entre Tecnologia o Tv")
+switch (seleccion) {
+    case "Tecnologia":
+        Tecnologia.forEach((Tecnologia)=>{
+            console.log (Tecnologia.nombre +" Marca:  " + Tecnologia.marca)
+            console.log ("Valor: $ " + Tecnologia.precio)
+            console.log ("Origen: " + Tecnologia.origen)
+            
+        })
         break;
-    case "43":
-        console.log ("el precio es de $ " + b)
-        if (pago == 1) {
-            console.log ("En efectivo tiene un 10 % de descuento")
-        }
-        else if (pago == 3) {
-           for (let index = 1; index <= 3; index++) {
-            console.log ("cuota " + index +" es = a: " + b / 3);
-            } 
-        }
-        else if (pago == 6){
-            for (let index = 1; index <= 6; index++) {
-                console.log ("cuota " + index +" es = a: " + b / 6);
-                } 
-           }
-           else{
-            console.log ("escoja entre 1, 3 y 6 pagos")
-           }
-        break;
-    case "50":
-        console.log ("el precio es de $ " + c)
-        console.log ("actualmente esta en promocion 15% descuento efectivo")
-        if (pago == 1) {
-            console.log ("En efectivo tiene un 15 % de descuento")
-        }
-        else if (pago == 3) {
-           for (let index = 1; index <= 3; index++) {
-            console.log ("cuota " + index +" es = a: " + c / 3);
-            } 
-        }
-        else if (pago == 6){
-            for (let index = 1; index <= 6; index++) {
-                console.log ("cuota " + index +" es = a: " + c / 6);
-                } 
-           }
-           else{
-            console.log ("escoja entre 1, 3 y 6 pagos")
-           }
+    case "Tv":
+        Tv.forEach((Tv)=>{
+            console.log(Tv.nombre)
+            console.log(Tv.pulgadas + " Pulgadas")
+            console.log("Su precio es $ " + Tv.precio)
+        })
         break;
 
     default:
-        console.log ("no tenemos stock en este momento")
+        alert ("Escriba bien las opciones")
         break;
 }
+
+
+
+   
+
+
+
+
+
+
+
 
 
 
